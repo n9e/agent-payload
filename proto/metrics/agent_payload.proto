@@ -27,6 +27,8 @@ message MetricsPayload {
 		repeated Point points = 4;
 		repeated string tags = 5;
 		string source_type_name = 6;
+		string ident = 100;
+		string alias = 101;
 	}
 	repeated Sample samples = 1;
 	CommonMetadata metadata = 2;
