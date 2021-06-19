@@ -15,6 +15,22 @@ message CommonMetadata {
 	string api_key = 6;
 }
 
+message N9eMetricsPayload {
+	message Sample {
+		string ident = 1;
+		string alias = 2;
+		string metric = 3;
+		map<string,string> tags = 4;
+		int64 time = 5;
+		double value = 6;
+		string type = 7;
+		string source_type_name = 8;
+	}
+	repeated Sample samples = 1;
+	CommonMetadata metadata = 2;
+}
+
+
 message MetricsPayload {
 	message Sample {
 		message Point {
@@ -27,8 +43,6 @@ message MetricsPayload {
 		repeated Point points = 4;
 		repeated string tags = 5;
 		string source_type_name = 6;
-		string ident = 100;
-		string alias = 101;
 	}
 	repeated Sample samples = 1;
 	CommonMetadata metadata = 2;
