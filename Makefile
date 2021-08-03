@@ -1,9 +1,9 @@
 .PHONY: build
 
 build:
-	docker run --rm -it  \
+	sudo docker run --rm -it  \
 		-w /go/src/github.com/n9e/agent-payload \
-		-v ${PWD}:/go/src/github.com/n9e/agent-payload \
+		-v $(shell pwd):/go/src/github.com/n9e/agent-payload \
 		ybbbbasdf/golang:v0.0.1 \
 		bash -c "protoc --proto_path=/go/src:. --gogofast_out=/go/src --java_out=java proto/logs/agent_logs_payload.proto && \
 		protoc --proto_path=/go/src:. --gogofast_out=/go/src proto/metrics/agent_payload.proto && \
